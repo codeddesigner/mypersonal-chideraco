@@ -23,7 +23,8 @@
     "prosemirror-transform": "^1.12.4",
     "prosemirror-view": "^1.42.8",
     "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react-dom": "^19.2.1",
+    "sharp": "^0.34.3"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",

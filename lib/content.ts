@@ -94,6 +94,12 @@ export function heroLayout(lines: string[]): HeroLayout {
   return { lines: parts, fit: round(Math.max(fit, 6)), fitSmall: round(Math.max(fitSmall, 5)) }
 }
 
+// Each line's width in ems with the highlighter's padding, worked out the same way. The share image
+// (app/opengraph-image.tsx) sizes its heading from these.
+export function heroLineEms(lines: string[]): number[] {
+  return lines.map((line) => textEm(line) + HIGHLIGHT)
+}
+
 export function portrait(settings: Settings): { src: string; alt: string; width?: number; height?: number } {
   const alt = settings.portrait_alt?.trim() || DEFAULT_CONTENT.portrait.alt
   if (settings.portrait_url) return { src: settings.portrait_url, alt }

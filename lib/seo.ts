@@ -12,6 +12,11 @@ export const FEED = { 'application/rss+xml': [{ url: '/feed.xml', title: site.br
 
 const abs = (path: string) => `${site.url}${path === '/' ? '' : path}` || '/'
 
+// The site's share picture (app/opengraph-image.tsx, a drawing of the home page's opening section).
+// A page that sets its own openGraph doesn't inherit it, so pageMetadata names it on every page.
+export const SHARE_IMAGE_ALT = `${site.author}, ${site.role}, on ${site.brand}`
+const SHARE_IMAGE = { url: '/opengraph-image', width: 1200, height: 630, type: 'image/png', alt: SHARE_IMAGE_ALT }
+
 // Title, description, canonical address and link-preview tags for an ordinary page.
 // A page that sets its own openGraph replaces the site-wide one, so every field is set here.
 export function pageMetadata({
@@ -32,8 +37,8 @@ export function pageMetadata({
     ...(title ? { title: absoluteTitle ? { absolute: title } : title } : {}),
     ...(description ? { description } : {}),
     alternates: { canonical: path, types: FEED },
-    openGraph: { type: 'website', url: path, siteName: site.brand, title: shownTitle, description: description ?? site.description },
-    twitter: { card: 'summary_large_image', title: shownTitle, description: description ?? site.description },
+    openGraph: { type: 'website', url: path, siteName: site.brand, title: shownTitle, description: description ?? site.description, images: [SHARE_IMAGE] },
+    twitter: { card: 'summary_large_image', title: shownTitle, description: description ?? site.description, images: [SHARE_IMAGE] },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   }
 }
