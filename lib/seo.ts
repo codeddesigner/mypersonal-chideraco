@@ -37,7 +37,7 @@ export function pageMetadata({
     ...(title ? { title: absoluteTitle ? { absolute: title } : title } : {}),
     ...(description ? { description } : {}),
     alternates: { canonical: path, types: FEED },
-    openGraph: { type: 'website', url: path, siteName: site.brand, title: shownTitle, description: description ?? site.description, images: [SHARE_IMAGE] },
+    openGraph: { type: 'website', url: path, siteName: site.siteName, title: shownTitle, description: description ?? site.description, images: [SHARE_IMAGE] },
     twitter: { card: 'summary_large_image', title: shownTitle, description: description ?? site.description, images: [SHARE_IMAGE] },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   }
@@ -69,8 +69,8 @@ export function websiteLd() {
   return {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
-    name: site.brand,
-    alternateName: [site.name, site.author],
+    name: site.siteName,
+    alternateName: [site.brand, site.name],
     url: abs('/'),
     description: site.description,
     inLanguage: 'en',

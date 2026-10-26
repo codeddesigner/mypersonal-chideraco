@@ -10,3 +10,4 @@ out
 # Built from fonts-src/ by scripts/join-font.mjs
 /app/fonts/ChideraSpar-Regular.woff
 /public/fonts/ChideraSpar-Regular.woff
+/app/favicon.ico

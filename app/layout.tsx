@@ -48,10 +48,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: `${site.author} | ${site.role}`, template: `%s | ${site.author}` },
   description: site.description,
-  applicationName: site.brand,
+  applicationName: site.siteName,
   alternates: { types: FEED },
   authors: [{ name: site.author }],
-  openGraph: { type: 'website', siteName: site.brand, title: `${site.author} | ${site.role}`, description: site.description },
+  openGraph: { type: 'website', siteName: site.siteName, title: `${site.author} | ${site.role}`, description: site.description },
   twitter: { card: 'summary_large_image' },
 }
 

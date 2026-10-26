@@ -9,6 +9,9 @@ function siteUrl() {
 export const site = {
   name: 'chidera.co',
   brand: 'Chidera’s Note',
+  // What search engines and link previews call the site (Google shows it above each result). The brand,
+  // Chidera’s Note, is given to them as another name for it.
+  siteName: 'Chidera Nwanyemike',
   author: 'Chidera Nwanyemike',
   role: 'Brand & Storytelling Strategist',
   description:

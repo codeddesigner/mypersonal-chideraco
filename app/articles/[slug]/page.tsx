@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     openGraph: {
       type: 'article',
       url,
-      siteName: site.brand,
+      siteName: site.siteName,
       title,
       description: article.description || undefined,
       publishedTime: article.published_at,
