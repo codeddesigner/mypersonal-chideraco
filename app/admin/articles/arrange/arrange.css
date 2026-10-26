@@ -1,0 +1,55 @@
+/* Admin → Articles → Arrange: one row per article, dragged by its dotted handle or moved with its arrows. */
+
+.arrange-intro { max-width: 68ch; font-size: 15.5px; line-height: 1.55; color: var(--ink-2); margin: 0 0 22px; }
+.arrange-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.arrange-row {
+  display: grid; grid-template-columns: 34px 26px 80px minmax(0, 1fr) auto; align-items: center; gap: 12px;
+  padding: 8px 12px 8px 6px; background: var(--white); border: 1px solid var(--rule-strong); border-radius: 10px;
+}
+/* The row being dragged: outlined in ink on the paper wash, so it's clear what's moving. */
+.arrange-row.is-dragging { border-color: var(--ink); background: var(--wash); outline: 1.5px solid var(--ink); }
+.arrange-handle {
+  display: grid; place-items: center; width: 34px; height: 44px; padding: 0;
+  border: 0; border-radius: 8px; background: none; color: var(--muted); cursor: grab; touch-action: none;
+}
+.arrange-handle:hover { color: var(--ink); background: var(--wash); }
+.is-dragging .arrange-handle { cursor: grabbing; color: var(--ink); }
+.arrange-num { font-size: 13px; font-weight: 500; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+.arrange-thumb .cover { width: 80px; border-radius: 4px; }
+.arrange-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.arrange-title { font-family: var(--display); font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+.arrange-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 13px; color: var(--muted); }
+.arrange-moves { display: flex; gap: 4px; }
+.arrange-move {
+  display: grid; place-items: center; width: 36px; height: 36px; padding: 0;
+  border: 1.5px solid var(--rule-strong); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer;
+}
+.arrange-move:hover:not(:disabled) { border-color: var(--ink); }
+.arrange-move:disabled { opacity: 0.35; cursor: default; }
+
+/* Where the home page's list ends. */
+.arrange-fold { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 12.5px; color: var(--ink-2); }
+.arrange-fold::before, .arrange-fold::after { content: ''; flex: 1; border-top: 1.5px dashed var(--rule-strong); }
+
+/* The save bar stays at the bottom of the screen while the list is longer than the screen. */
+.arrange-bar {
+  position: sticky; bottom: 0; z-index: 5;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px;
+  margin: 20px 0 0; padding: 14px 0 16px; background: var(--paper); border-top: 1px solid var(--rule-strong);
+}
+.arrange-bar.is-dirty { border-top: 2px solid var(--ink); }
+.arrange-status { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+.is-dirty .arrange-status { color: var(--ink); font-weight: 600; }
+.arrange-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.arrange-actions form { margin: 0; }
+.arrange-reset { margin: 36px 0 0; }
+.arrange-reset .hint { margin: 0 0 12px; }
+
+@media (max-width: 640px) {
+  .arrange-row { grid-template-columns: 30px 56px minmax(0, 1fr) auto; gap: 10px; padding-right: 8px; }
+  .arrange-num { display: none; }
+  .arrange-thumb .cover { width: 56px; }
+  .arrange-title { font-size: 17px; }
+  .arrange-moves { flex-direction: column; }
+  .arrange-move { width: 34px; height: 34px; }
+}

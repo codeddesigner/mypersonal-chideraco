@@ -1,0 +1,10 @@
+/* The Subscribe page is itself the sign-up, so the footer's sign-up box is left out here. */
+body:has([data-page='subscribe']) #newsletter { display: none; }
+
+/* The words use the whole right-hand column and scale with the screen, rather than sitting in a fixed narrow strip. */
+[data-page='subscribe'] .auth-main { max-width: 620px; }
+[data-page='subscribe'] .page-sub { font-size: clamp(18px, 1.6vw, 23px); max-width: none; text-wrap: pretty; }
+[data-page='subscribe'] .subscribe-newsletter { max-width: 520px; }
+
+/* The heading, the line under it and the line beside the drawing break where they were broken in Admin → Site content. */
+[data-page='subscribe'] :is(.page-title, .auth-art-line, .page-sub) { white-space: pre-line; }

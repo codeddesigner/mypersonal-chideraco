@@ -1,0 +1,28 @@
+/* Admin → About page: group headings, logo uploads and access codes. Loaded on top of globals.css. */
+
+.admin h2.admin-group {
+  font-family: var(--display); font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: -0.015em; text-transform: none;
+  margin: 26px 0 -4px;
+}
+.form > h2.admin-group:first-child { margin-top: 0; }
+.image-input { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.image-input-preview {
+  display: grid; place-items: center; width: 64px; height: 64px; overflow: hidden;
+  border: 1.5px solid var(--ink); border-radius: 50%; background: var(--white);
+}
+.image-input-preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.image-input-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.image-input-actions .btn:focus-within { outline: 2px solid var(--ink); outline-offset: 3px; }
+/* The upload button is a label inside a field; keep it a button, not a field caption. */
+.image-input-actions label.btn { display: inline-flex; margin: 0; font-size: 14px; letter-spacing: 0; text-transform: none; }
+.codes > h2.admin-group { margin: 22px 0 8px; }
+.image-input .notice { flex-basis: 100%; margin: 0; }
+.codes { margin-top: 56px; padding-top: 4px; border-top: 1.5px solid var(--ink); }
+.code-issued {
+  display: inline-block; margin: 0 0 18px; padding: 6px 18px 4px; background: var(--marker);
+  font-family: var(--display); font-size: 52px; line-height: 1; letter-spacing: 0.16em;
+}
+.code-input { text-transform: uppercase; letter-spacing: 0.24em; }
+.code-input::placeholder { text-transform: none; letter-spacing: 0; }
+.code-cell { font-family: var(--display); font-size: 20px; letter-spacing: 0.12em; white-space: nowrap; }
+.table tr.is-off td { color: var(--muted); }

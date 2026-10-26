@@ -1,0 +1,5 @@
+/* "Continue with Google" above the email form on sign-up and sign-in. */
+.oauth { margin: 0; }
+.oauth-btn { width: 100%; min-height: 50px; justify-content: center; }
+.oauth-or { display: flex; align-items: center; gap: 14px; margin: 18px 0 2px; font-size: 13px; color: var(--muted); }
+.oauth-or::before, .oauth-or::after { content: ''; flex: 1; border-top: 1px solid var(--rule-strong); }

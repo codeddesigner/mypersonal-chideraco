@@ -1,0 +1,43 @@
+/* The invitation to the tiny games, pinned to the bottom of the screen (components/GameNudge.tsx).
+   It slides up shortly after a page opens, slides away while the reader scrolls down, and slides back up
+   when they return to the top. Loaded by app/layout.tsx. */
+
+.game-nudge {
+  position: fixed; z-index: 50; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: min(560px, calc(100% - 32px)); translate: -50% 0;
+  display: flex; align-items: center; gap: 12px; padding: 10px 8px 10px 14px;
+  background: var(--panel); color: var(--ink); border: 1.5px solid var(--ink); border-radius: 16px;
+  box-shadow: 0 14px 34px rgba(20, 34, 24, 0.22);
+  transition: translate 0.5s cubic-bezier(0.2, 0.75, 0.2, 1), opacity 0.3s ease, visibility 0s;
+}
+/* Out of view while the reader is further down the page; it can't be tabbed to or clicked there. */
+.game-nudge.is-away {
+  translate: -50% 140%; opacity: 0; visibility: hidden; pointer-events: none;
+  transition: translate 0.3s ease, opacity 0.25s ease, visibility 0s 0.3s;
+}
+/* Coming straight into view (from a page without the bar, say) still slides up. */
+@starting-style {
+  .game-nudge:not(.is-away) { translate: -50% 140%; opacity: 0; }
+}
+.game-nudge-ball { flex: none; width: 38px; height: 38px; }
+.game-nudge-text { flex: 1; min-width: 0; margin: 0; font-size: 15.5px; line-height: 1.3; }
+.game-nudge-play { flex: none; }
+.game-nudge-close {
+  flex: none; width: 40px; height: 40px; display: grid; place-items: center; padding: 0;
+  border: 0; border-radius: 999px; background: none; color: var(--ink); cursor: pointer;
+}
+.game-nudge-close:hover { background: rgba(20, 34, 24, 0.08); }
+.game-nudge-close:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (max-width: 420px) {
+  .game-nudge { gap: 10px; padding-left: 12px; }
+  .game-nudge-ball { width: 32px; height: 32px; }
+  .game-nudge-text { font-size: 14.5px; }
+}
+/* With reduced motion it fades instead of sliding. */
+@media (prefers-reduced-motion: reduce) {
+  .game-nudge, .game-nudge.is-away { translate: -50% 0; }
+  @starting-style {
+    .game-nudge:not(.is-away) { translate: -50% 0; }
+  }
+}
+@media print { .game-nudge { display: none; } }

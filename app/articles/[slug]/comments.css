@@ -1,0 +1,22 @@
+/* Comments under an article, in the same column as the article's text. Loaded by components/Comments.tsx. */
+
+.comments { max-width: var(--measure); margin: clamp(56px, 7vw, 96px) auto 0; padding-top: clamp(24px, 3vw, 36px); border-top: 1.5px solid var(--ink); }
+.comments-title { display: flex; align-items: baseline; gap: 12px; font-family: var(--display); font-weight: 400; font-size: clamp(32px, 3.4vw, 46px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 clamp(18px, 2.4vw, 28px); }
+.comments-count { font-family: var(--serif); font-style: italic; font-size: 0.55em; color: var(--muted); letter-spacing: 0; }
+
+.comment-list { list-style: none; margin: 0 0 clamp(28px, 4vw, 44px); padding: 0; }
+.comment { padding: 18px 0 20px; border-top: 1px solid var(--rule-strong); }
+.comment:last-child { border-bottom: 1px solid var(--rule-strong); }
+.comment-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0 0 8px; font-size: 14px; }
+.comment-name { font-weight: 600; color: var(--ink); }
+.comment-badge { padding: 0 6px 1px; background: var(--marker); font-size: 12.5px; font-weight: 500; }
+.comment-head time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.comment-body { margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-2); white-space: pre-line; overflow-wrap: anywhere; }
+.comment-delete { margin: 8px 0 0; }
+.comment-delete .link-btn { font-size: 13px; color: var(--muted); }
+
+.comments-empty { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--ink-2); margin: 0 0 24px; }
+.comments-signin { font-size: 16px; color: var(--ink-2); margin: 0; }
+.comment-form { display: flex; flex-direction: column; gap: 14px; }
+.comment-form textarea { min-height: 120px; resize: vertical; }
+.comment-form .notice { margin: 0; }

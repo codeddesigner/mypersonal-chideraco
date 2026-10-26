@@ -1,0 +1,38 @@
+/* The Play pages (app/play): the tiny games (public/games) and the row of them to pick from.
+   lib/offline.ts has the same styles for the "not available" page. */
+
+.play .game-picker { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; max-width: 760px; }
+.play .game-picker a {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 16px 6px 10px;
+  border: 1.5px solid var(--ink); border-radius: 999px; color: var(--ink); text-decoration: none;
+  font-size: 16px; font-weight: 600; line-height: 1;
+}
+.play .game-picker a:hover { background: var(--wash); }
+.play .game-picker a[aria-current='page'] { background: var(--ink); color: var(--paper); }
+.play .game-picker svg { flex: none; }
+
+.play .game { max-width: 760px; }
+.play .game canvas {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 6px;
+  outline: 1.5px solid var(--ink); outline-offset: -1.5px; touch-action: none; cursor: crosshair;
+  user-select: none; -webkit-user-select: none;
+}
+.play .game canvas:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.play .game-foot {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px;
+  margin-top: 12px; font-size: 15px; color: var(--ink-2);
+}
+.play .game-foot p { margin: 0; }
+.play .game-foot p:first-child { flex: 1 1 280px; max-width: 52ch; }
+/* The how-to matches the device: a mouse (and keyboard), or a finger. */
+.play .how-mouse { display: none; }
+@media (hover: hover) and (pointer: fine) { .play .how-mouse { display: inline; } .play .how-touch { display: none; } }
+.play .score { display: flex; gap: 18px; font-variant-numeric: tabular-nums; }
+.play .score b { font-family: var(--display); font-weight: 400; font-size: 24px; line-height: 1; color: var(--ink); margin-left: 6px; }
+.play-back { margin: 28px 0 0; font-size: 16px; }
+
+@media (max-width: 520px) {
+  .play .game-picker { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--gutter, 16px) * -1); padding: 2px var(--gutter, 16px) 4px; scrollbar-width: none; }
+  .play .game-picker::-webkit-scrollbar { display: none; }
+  .play .game-picker a { flex: none; }
+}

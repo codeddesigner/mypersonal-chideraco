@@ -1,0 +1,13 @@
+/* Switching the website off (lib/offline.ts, middleware.ts). */
+
+/* Shown to the admin on every page while the website is switched off (app/layout.tsx). */
+.offline-banner { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; margin: 0; }
+/* Admin → Settings → Website availability. */
+.availability-state {
+  display: flex; align-items: flex-start; gap: 10px; margin: 0 0 18px; padding: 12px 14px;
+  font-size: 15px; line-height: 1.45; border-radius: 10px; background: var(--success-bg); color: var(--ink);
+}
+.availability[data-offline] .availability-state { background: var(--danger-bg); }
+.availability-dot { flex: none; width: 10px; height: 10px; margin-top: 6px; border-radius: 50%; background: var(--success); }
+.availability[data-offline] .availability-dot { background: var(--danger); }
+.availability-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }

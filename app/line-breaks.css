@@ -1,0 +1,16 @@
+/* Line breaks typed in admin show on the site in the same places.
+   Every bit of text written in admin that isn't Markdown is listed here (Markdown makes each Enter a new
+   paragraph instead). Loaded by app/layout.tsx after globals.css. Article titles are in globals.css. */
+
+/* Articles: titles and descriptions in lists, the featured article, the article header and Previous/Next. */
+.card-title, .card-desc, .feature-excerpt, .standfirst, .adjacent-title,
+/* Footer description. */
+.footer-about,
+/* About page: the opening, the numbers, services, the journey, education and hobbies. */
+.about-statement, .about-credential, .about-figure-value, .about-figure-label,
+.services h3, .services p,
+.stop-org, .stop-role, .stop-period, .stop-text,
+.timeline-role, .timeline-org, .timeline-period,
+.hobbies h3, .hobbies p {
+  white-space: pre-line;
+}

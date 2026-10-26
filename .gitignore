@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+.env*.local
+.env
+.vercel
+*.tsbuildinfo
+.DS_Store
+
+# Built from fonts-src/ by scripts/join-font.mjs
+/app/fonts/ChideraSpar-Regular.woff
+/public/fonts/ChideraSpar-Regular.woff

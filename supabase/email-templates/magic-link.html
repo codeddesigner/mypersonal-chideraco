@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <body style="margin:0;padding:0;background:#efefe6;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#efefe6;">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#fafaf5;border-top:6px solid #e8ebb4;border-radius:4px;">
+            <tr>
+              <td style="padding:32px 32px 8px;font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#142218;">
+                <a href="https://chidera.co" style="color:#142218;text-decoration:none;">Chidera’s Note</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 32px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#142218;">
+                <h1 style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:1.2;font-weight:400;">Your sign-in code</h1>
+                <p style="margin:0 0 20px;font-size:17px;line-height:1.6;">Enter this code on chidera.co to sign in.</p>
+                <p style="margin:0 0 24px;"><span style="display:inline-block;padding:14px 22px;background:#e8ebb4;border-radius:10px;font-family:Menlo,Consolas,'Courier New',monospace;font-size:32px;line-height:1.1;letter-spacing:6px;font-weight:700;color:#142218;">{{ .Token }}</span></p>
+                <p style="margin:0;font-size:14px;line-height:1.55;color:#5e6b62;">The code works once. If you didn’t ask to sign in, ignore this email.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:28px 32px 32px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#5e6b62;">
+                Sent by <a href="https://chidera.co" style="color:#5e6b62;">chidera.co</a> to {{ .Email }}.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

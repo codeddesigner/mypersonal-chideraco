@@ -1,0 +1,21 @@
+/* Reading pages fade in as they scroll into view, like the rest of the site (globals.css, "Motion"):
+   an article block by block, then its comments, the subscription prompt, account sections and empty states.
+   components/Motion.tsx adds data-in as each arrives. Never in the admin, and never when the reader prefers reduced motion. */
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-motion] :is(.article-body .prose > *, .gate, .comments-title, .comment-list > li, .comments-empty, .comments-signin, .comment-form, .page .block, .empty):not(.admin *) {
+    transition:
+      opacity 0.8s ease var(--d, 0s),
+      translate 0.9s cubic-bezier(0.2, 0.75, 0.2, 1) var(--d, 0s);
+  }
+  [data-motion] :is(.gate, .comments-title, .comment-list > li, .comments-empty, .comments-signin, .comment-form, .page .block, .empty):not(.admin *):not([data-in]) {
+    opacity: 0; translate: 0 32px;
+  }
+  /* Article text rises less and arrives sooner than the other sections, so reading stays steady. */
+  [data-motion] .article-body .prose > *:not(.admin *) {
+    transition:
+      opacity 0.6s ease var(--d, 0s),
+      translate 0.7s cubic-bezier(0.2, 0.75, 0.2, 1) var(--d, 0s);
+  }
+  [data-motion] .article-body .prose > :not([data-in]):not(.admin *) { opacity: 0; translate: 0 16px; }
+}
